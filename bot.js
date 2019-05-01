@@ -43,7 +43,7 @@ client.on('guildMemberAdd', member => {
     })
 	
 	
-       var setGame = ['ahelp','Type ahelp'];
+    var setGame = ['ahelp','Type ahelp'];
 	
 	
 	
