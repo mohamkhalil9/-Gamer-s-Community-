@@ -85,16 +85,5 @@ client.on('guildMemberAdd', async function (Monster) {
 });//By 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
 //CopyRights ToxicCodes 04/28/2019 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
 
-client.on('ready', () => {
-   console.log(`----------------`);
-      console.log(`Desert Bot- Script By : EX Clan`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Ex ~ Welcomer .`,"http://twitch.tv/Death Shop")
-client.user.setStatus("online")
-});
-
 
 client.login(process.env.BOT_TOKEN);
