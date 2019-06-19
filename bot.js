@@ -5,57 +5,85 @@ const client = new Discord.Client();
 
 
 
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '🙌『الـترحيب』-•');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return;
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField(':running_shirt_with_sash: | name :  ',`${member}`)
-        .addField(':loudspeaker: | اطلق من دخل شخص جديد' , `اهلاً بك في السيرفر, ${member}`)
-        .addField(':id | user :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                     
-                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
-                                       
-     .setFooter(`${member.guild.name}`)
-        .setTimestamp()
-   
-      channel.sendEmbed(embed);
-    });
-    
-    client.on('guildMemberRemove', member => {
-        var embed = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
-        .setThumbnail(member.user.avatarURL)
-        .setTitle(`لقد خرج صديق :( :raised_hand::skin-tone-1: :pensive:`)
-        .setDescription(`مع السلامة يحبي :raised_hand::skin-tone-1: :pensive: `)
-        .addField(':bust_in_silhouette:   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
-        .setColor('RED')
-        .setFooter(`====شكرا للاستمتاع====`, ' https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
-    
-    var channel =member.guild.channels.find('name', '🙌『الـترحيب』-•')
-    if (!channel) return;
-    channel.send({embed : embed});
-    })
-	
-	
-	
-	
-
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const xkiller = member.guild.channels.find("name", "🙌『الـترحيب』-•");
-     xkiller.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
+//CopyRights ToxicCodes 04/28/2019 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
+client.on("message", message =>{
+  let command = message.content.split(" ")[0].slice(prefix.length);
+  let args = message.content.split(" ").slice(1);
+  if(!message.content.startsWith(prefix)) return;
+  if(message.author.bot) return;
+  if(command === "welcome") {
+      let welcomechann = args.join(" ");
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You must have the **`ADMINISTRATOR`** permission!")
+      if(!message.guild.me.hasPermission("ADMINISTRATOR")) return message.reply("I must have the **`ADMINISTRATOR`** permissions!")
+      if(!message.member.guild.channels.find(x => x.name === welcomechann)) return message.reply("Usage: **`(channel name)`**");
+      message.reply("Successfully applied welcome to **`" + welcomechann + "`**")
+      WelcomeChannel[message.guild.id] = {
+          guild: message.guild.name,
+          channel: welcomechann
+      }
+      fs.writeFile("./welcomer.json", JSON.stringify(WelcomeChannel, null, 4), err => {
+          if(err) throw err;
   });
+}
 });
-
+client.on('guildMemberAdd', async function (Monster) {
+  const WelcomeChannelMK =  Monster.guild.channels.find(mk => mk.name === WelcomeChannel[Monster.guild.id].channel);
+  if(!WelcomeChannelMK) return;
+  Monster.guild.fetchInvites().then(guildInvites => {
+      const uses = guildInvites.find(codes => codes.uses);
+      const UserInvited = client.users.get(uses.inviter.id);
+            let itsMe = client.emojis.find(copy => copy.name === "diamondmk");
+            var EmbedWelcome = new Discord.RichEmbed()
+            .setDescription(`${itsMe} __**New Member Joined**__
+            ➤ Welcome <@${Monster.user.id}> To **${Monster.guild.name}**
+            ➤ You Are Nr: **${Monster.guild.memberCount}**
+            ➤ Invited By: <@${UserInvited.id}>`)
+            .setColor('#383c41');
+  const MKPIC = ['./imgs/w1.png'];
+  let Image = Canvas.Image,
+     CodesMK = new Canvas(400, 200),
+     ctx = CodesMK.getContext('2d');
+ fs.readFile(MKPIC, function (err, Background) {
+     if (err) return console.log(err);
+     let BG = Canvas.Image;
+     let ground = new Image;
+     ground.src = Background;
+     ctx.drawImage(ground, 0, 0, 400, 200);
+         let url = Monster.user.displayAvatarURL.endsWith(".webp") ? Monster.user.displayAvatarURL.slice(100) + ".png" : Monster.user.displayAvatarURL;
+         jimp.read(url, (err, ava) => {
+             if (err) return console.log(err);
+             ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                 if (err) return console.log(err);
+                  ctx.font = "bold 16px Arial";
+                  ctx.fontSize = '20px';
+                  ctx.fillStyle = "#f1f1f1";
+                  ctx.textAlign = "center";
+                  ctx.fillText(Monster.guild.name, 254, 67);
+                  ctx.font = "bold 16px Arial";
+                  ctx.fontSize = '20px';
+                  ctx.fillStyle = "#f1f1f1";
+                  ctx.textAlign = "center";
+                  ctx.fillText(Monster.guild.memberCount, 338, 161);
+                  ctx.font = "bold 16px Arial";
+                  ctx.fontSize = '20px';
+                  ctx.fillStyle = "#f1f1f1";
+                  ctx.textAlign = "center";
+                  ctx.fillText(Monster.user.username, 77, 183);
+                  let Avatar = Canvas.Image;
+                  let ava = new Avatar;
+                  ava.src = buf;
+                  ctx.beginPath();
+                  ctx.arc(77, 101, 62, 0, Math.PI*2);
+                  ctx.stroke();
+                  ctx.clip();
+                  ctx.drawImage(ava, 13, 38, 128, 126);
+          WelcomeChannelMK.send({embed: EmbedWelcome, file: CodesMK.toBuffer()});
+              })
+          })
+      });
+  })
+});//By 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
+//CopyRights ToxicCodes 04/28/2019 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
 
 client.on('ready', () => {
    console.log(`----------------`);
@@ -64,7 +92,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`#♛ ExPlosive ♛ | Welcomer`,"http://twitch.tv/Death Shop")
+client.user.setGame(`Ex ~ Welcomer`,"http://twitch.tv/Death Shop")
 client.user.setStatus("online")
 });
 
