@@ -57,5 +57,16 @@ client.on('guildMemberAdd', member => {
 });
 
 
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : EX Clan`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`#♛ ExPlosive ♛ | Welcomer`,"http://twitch.tv/Death Shop")
+client.user.setStatus("online")
+});
+
 
 client.login(process.env.BOT_TOKEN);
