@@ -1171,31 +1171,7 @@ if (message.content.startsWith("$add.r")) {
 });
 
 
-client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find('name', '⌈🤚🏼-شات-الترحيب-🤚🏼⌋');
-  if (!channel) return;
-  channel.send(`***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله***, ${member}`);
-	
-	
-});
 
-client.on('message', message => {
-  if (true) {
-if (message.content === 'تسجيل دخول') {
-      message.author.send(':white_check_mark: تم تسجيل دخولك').catch(e => console.log(e.stack));
-
-    }
-   } 
-  });
-
-client.on('message', message => {
-  if (true) {
-if (message.content === 'تسجيل خروج') {
-      message.author.send(':white_check_mark: تم تسجيل خروجك').catch(e => console.log(e.stack));
-
-    }
-   } 
-  });
 	
 
 //اومر الكونسل و البوت//
