@@ -26,7 +26,7 @@ client.on('guildMemberAdd', member => {
 
   
      client.on("message", message => {
-      if (message.content === "تسجيل دخول") {
+      if (message.content === "تسجيل دخول1") {
        const embed = new Discord.RichEmbed()   // Alpha Codes Ghost
            .setColor("#FF00FF")
            .setFooter('By Lewis')
@@ -35,6 +35,15 @@ client.on('guildMemberAdd', member => {
      
      }
      });
+
+client.on('message', message => {
+  if (true) {
+if (message.content === 'تسجيل دخول') {
+      message.author.send(':white_check_mark: تم تسجيل دخولك').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
 
 client.on('messageDelete', message => {
  
