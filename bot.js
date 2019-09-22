@@ -46,6 +46,158 @@ if (message.content === 'تسجيل دخول') {
   });
 
 
+client.on('message', message => { // اقتراح
+    if (message.content.startsWith(prefix + 'sug')) {
+        if (message.author.bot) return
+        if (!message.guild) return message.reply('**:x: This Commands Just In Server**').then(v => {v.react('❌')})
+        var args =  message.content.split(' ').slice(1).join(' ')
+        if (!args) return message.reply('Type You Suggestion').then(c => {c.delete(5000)})
+        let Room = message.guild.channels.find(`name`, "✨-suggestions")
+        if (!Room) return message.channel.send("Can't find suggestions channel.").then(d => d.react('❌'))
+        let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setAuthor(`Vote on ${message.author.username}'s suggestion`, message.author.avatarURL)
+        .addField('**Suggestion**',`${args}`)
+        .setThumbnail(message.author.avatarURL)
+        .setFooter(`ID: ${message.author.id}`)
+        Room.sendEmbed(embed).then(c => {
+            c.react('✅').then(() => 
+                c.react('❌'))
+
+        }).catch(e => console.error(e)
+        )
+    }
+});
+
+client.on("message", message => { // تقديم اداره
+  if(message.content.startsWith("!register")) {
+        if(!message.channel.guild) return;
+                if(message.author.bot) return;
+        let channel = message.guild.channels.find("name", "🚫apply-to-whitelist🚫")
+            if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
+            if(channel) {
+            message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+              m.edit( message.member + ', **؟ ( Roleplay ) ما هو تعريف الرول بلاي **' )
+              m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m1) => {
+                  m1 = m1.first();
+                  var name = m1.content;
+                  m1.delete();
+                  m.edit(message.member + ', **:timer:**').then( (m) =>{
+                      m.edit( message.member + ', **؟ ( VDM ) ما هو ال**' )
+                      setTimeout(() => {
+                        m.delete()
+                      }, 10000);
+                      m.channel.awaitMessages( m2 => m2.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m2) => {
+                          m2 = m2.first();
+                          var age = m2.content;
+                          m2.delete()
+                          message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                            m.edit( message.member + ', **؟ ( RDM ) ما هو ال**' )
+                            setTimeout(() => {
+                              m.delete()
+                            }, 10000);
+                            m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m3) => {
+                                m3 = m3.first();
+                                var ask = m3.content;
+                                m3.delete();
+                                message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                                  m.edit( message.member + ', **؟ ( LAR ) ما هو تعريف**' )
+                                  setTimeout(() => {
+                                    m.delete()
+                                  }, 10000);
+                                  m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m4) => {
+                                      m4 = m4.first();
+                                      var ask2 = m4.content;
+                                      m4.delete();
+                                      message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                                        m.edit( message.member + ', **من هم الاشخاص الذين يمنع قتلهم عند طلبهم ومن هم الاشخاص الذين يمنع تلويتهم ؟**' )
+                                        m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m5) => {
+                                            m5 = m5.first();
+                                            var ask3 = m5.content;
+                                            m5.delete();
+											message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                                              m.edit( message.member + ', **كم ايديك في السيرفر ؟**' )
+                                                 m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m6) => {
+                                                    m6 = m1.first();
+                                                       var name = m1.content;
+                                                         m6.delete();
+                      m.edit(message.member + ', **....جارى جمع البيانات**').then( (mtime)=>{
+                        setTimeout(() => {
+                          let embed = new Discord.RichEmbed()
+                        .setColor('RANDOM')
+                        .setTitle(`**تقديم ادارة** [__**${message.guild.name}**__]`)
+                        .addField('**`؟ ( Roleplay ) ما هو تعريف الرول بلاي`**', `${name}` , true)
+                        .addField('**`؟ ( VDM ) ما هو ال`**', `${age}` , true)
+                        .addField('**`؟ ( RDM ) ما هو ال`**',`${ask}`)
+                        .addField('**`؟ ( LAR ) ما هو تعريف`**',`${ask2}`)
+                        .addField('**`هل يسمح بتلويت شخص لم تقوم بقتلة ؟`**',`${ask3}`)
+						.addField('**`كم ايديك في السيرفر ؟`**',`${ask4}`)
+                        .setFooter(message.author.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
+                        channel.send(embed)
+                        }, 2500);
+                        setTimeout(() => {
+                          mtime.delete()
+                        }, 3000);
+
+                  })
+                })
+                })
+              })
+            })
+          })
+        })
+        })
+              })
+          })
+        })
+    }
+}
+        });
+    client.on('message',async message => {
+  let mention = message.mentions.members.first();
+  let mySupport = message.guild.roles.find('name','مواطن مفعل - Whitelisted');
+  if(message.content.startsWith("!قبول")) {
+    let acRoom = message.guild.channels.find('name', '💥-accept-or-reject');
+    if(acRoom) {
+    if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return;
+    if(!mention) return message.reply('منشن شخص');
+
+    mention.addRole(mySupport).then(() => {
+      acRoom.send(`**[ ${myHelper} ] وتفعيلك داخل السيرفر ${mention} تم بنجاح قبولك**`);
+    });
+  }
+}
+});
+
+client.on('message',async message => {
+  let mention = message.mentions.members.first();
+  if(message.content.startsWith("!رفض")) {
+  if(!message.channel.guild) return;
+  let acRoom = message.guild.channels.find('name', '💥-accept-or-reject');
+  if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return;
+  if(!mention) return message.reply("منشن شخص");
+ 
+  acRoom.send(`**${mention} تم رفضك للاسف**`)
+  }
+});
+client.on("message", message => {
+    if (message.content === (prefix + "help")) {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#580e6b")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`**
+         ------------------------------
+                  أكتب هون
+                 **
+         bot by :
+         tech server :
+       **  `)
+
+   message.author.sendEmbed(embed)
+   
+   }
+   })
+
 
 
 
