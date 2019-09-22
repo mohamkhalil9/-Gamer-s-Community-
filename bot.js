@@ -45,15 +45,7 @@ if (message.content === 'تسجيل دخول') {
    } 
   });
 
-client.on("message", تسجيل دخول => {
-      if (inv.content === "تسجيل دخول") {
-       const embed = new Discord.RichEmbed() 
-           .setColor("#FF0000")
-           .setDescription(`**:white_check_mark: تم تسجيل خروجك**`)
-     inv.author.sendEmbed(embed) // Alpha Codes Ghost
-     
-     }
-     });
+
 
 // -say
 
