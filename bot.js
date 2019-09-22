@@ -594,3 +594,10 @@ if (message.content === 'تسجيل خروج') {
     }
    } 
   });
+
+client.on('message', message => {
+  if (true) {
+if (message.content === 'رابط') {
+      message.author.send('https://discord.gg/vxjGBhd').catch(e => console.log(e.stack));
+
+client.login(process.env.BOT_TOKEN);
