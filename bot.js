@@ -47,15 +47,6 @@ if (message.content === 'تسجيل دخول') {
 
 
 
-// -say
-
- if (command === "say") { // Alpha Codes Ghost
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendMessage("**You Donot HavePermission ADMINISTRATOR**").then(m => m.delete(5000));
-          message.delete()
-
-    message.channel.sendMessage(args.join(" ")).catch(console.error);
-
-  }
 
 
 client.on('messageDelete', message => {
