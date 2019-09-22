@@ -20,9 +20,20 @@ client.user.setStatus("online") // Alpha Codes Ghost
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find('name', 'welcome');
   if (!channel) return;
-  channel.send(`***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله***, ${member}`);
+  channel.send(`**بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله**, ${member}`);
   
 });
+
+   client.on("message", message => {
+    if (message.content === ".help") {
+     const embed = new Discord.RichEmbed()   // Alpha Codes Ghost
+         .setDescription(`**:white_check_mark: تم تسجيل دخولك**`)
+         
+         
+ 
+   
+   }
+   });
 
 client.on('messageDelete', message => {
  
