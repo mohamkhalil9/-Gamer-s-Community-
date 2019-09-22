@@ -13,10 +13,15 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Arab Force For RP | قوات العرب للحياة الواقعية | .help`,"http://twitch.tv/Dream")
-client.user.setStatus("dnd") // Alpha Codes Ghost
+client.user.setGame(`Arab Force For RP | قوات العرب للحياة الواقعية`,"http://twitch.tv/Dream")
+client.user.setStatus("online") // Alpha Codes Ghost
 });
 
+client.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.find('name', '⌈🤚🏼-شات-الترحيب-🤚🏼⌋');
+  if (!channel) return;
+  channel.send(`***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله***, ${member}`);
+  
 
 client.on('messageDelete', message => {
  
