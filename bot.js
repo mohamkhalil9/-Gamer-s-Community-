@@ -6,23 +6,15 @@ client.on('ready', () => {
 });
 
 
-client.on('ready', function(){
-    client.user.setStatus("dnd");
-    var ms = 100000 ;
-    var setGame = [`Arab Force For RP | قوات العرب للحياة الواقعية`,`$invite Users ${client.users.size}`];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/KiNg66S`);
-    }, ms);100000
-
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`NewBot Update 1.0`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`Arab Force For RP | قوات العرب للحياة الواقعية | .help`,"http://twitch.tv/Dream")
+client.user.setStatus("dnd") // Alpha Codes Ghost
 });
 
 
