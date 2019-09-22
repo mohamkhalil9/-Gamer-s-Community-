@@ -24,16 +24,17 @@ client.on('guildMemberAdd', member => {
   
 });
 
-   client.on("message", message => {
-    if (message.content === ".help") {
-     const embed = new Discord.RichEmbed()   // Alpha Codes Ghost
-         .setDescription(`**:white_check_mark: تم تسجيل دخولك**`)
-         
-         
- 
-   
-   }
-   });
+  
+     client.on("message", message => {
+      if (message.content === "تسجيل دخول") {
+       const embed = new Discord.RichEmbed()   // Alpha Codes Ghost
+           .setColor("#FF00FF")
+           .setFooter('By Lewis')
+           .setDescription(`:white_check_mark: **__تم تسجيل دخولك__**`)
+     message.author.sendEmbed(embed)
+     
+     }
+     });
 
 client.on('messageDelete', message => {
  
