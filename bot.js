@@ -45,6 +45,27 @@ if (message.content === 'تسجيل دخول') {
    } 
   });
 
+client.on("message", تسجيل دخول => {
+      if (inv.content === "تسجيل دخول") {
+       const embed = new Discord.RichEmbed() 
+           .setColor("#FF0000")
+           .setDescription(`**:white_check_mark: تم تسجيل خروجك**`)
+     inv.author.sendEmbed(embed) // Alpha Codes Ghost
+     
+     }
+     });
+
+// -say
+
+ if (command === "say") { // Alpha Codes Ghost
+  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendMessage("**You Donot HavePermission ADMINISTRATOR**").then(m => m.delete(5000));
+          message.delete()
+
+    message.channel.sendMessage(args.join(" ")).catch(console.error);
+
+  }
+
+
 client.on('messageDelete', message => {
  
     if(message.author.bot) return;
