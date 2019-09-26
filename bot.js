@@ -64,7 +64,7 @@ client.on('message', message => {
     if (message.content === "تسجيل خروج") {
     let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
-  .setFooter(`Arab Force System`)
+  .setDescription(`:white_check_mark: **__تم تسجيل دخولك__**`)
   .setColor("#000000")
   .addField(" :white_check_mark: تــــم تسجيل خروجك") // Alpha Codes Ghost
   
