@@ -24,26 +24,8 @@ client.on('guildMemberAdd', member => {
   
 });
 
-  
-     client.on("message", message => {
-      if (message.content === "تسجيل دخول1") {
-       const embed = new Discord.RichEmbed()   // Alpha Codes Ghost
-           .setColor("#FF00FF")
-           .setFooter('By Lewis')
-           .setDescription(`:white_check_mark: **__تم تسجيل دخولك__**`)
-     message.author.sendEmbed(embed)
-     
-     }
-     });
+ 
 
-client.on('message', message => {
-  if (true) {
-if (message.content === 'تسجيل دخول') {
-      message.author.send(':white_check_mark: تم تسجيل دخولك').catch(e => console.log(e.stack));
-
-    }
-   } 
-  });
 
 
 client.on('message', message => {
