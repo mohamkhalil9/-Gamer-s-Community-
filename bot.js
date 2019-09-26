@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "."
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -25,23 +25,7 @@ client.on('guildMemberAdd', member => {
 });
 
 
-if (command == "say") {
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendMessage("**You Donot HavePermission ADMINISTRATOR**").then(m => m.delete(5000));
-    let say = new Discord.RichEmbed()
 
-    .setDescription(args.join(" "))
-
-    .setColor(0x23b2d6) // Alpha Codes Ghost
-
-    message.channel.sendEmbed(say);
-
-    message.delete();
-
-  }
-
-
-
-});
  
 
 
