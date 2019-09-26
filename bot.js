@@ -46,30 +46,8 @@ if (message.content === 'تسجيل دخول') {
   });
 
 
-client.on('message', message => {
 
-  if (message.author.bot) return; // Alpha Codes Ghost
-
-  if (!message.content.startsWith(prefix)) return;
-
-
-  let command = message.content.split(" ")[0];
-
-  command = command.slice(prefix.length);
-
-
-  let args = message.content.split(" ").slice(1);
-
-
-// -say
-
- if (command === "!say") { // Alpha Codes Ghost
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendMessage("**You Donot HavePermission ADMINISTRATOR**").then(m => m.delete(5000));
-          message.delete()
-
-    message.channel.sendMessage(args.join(" ")).catch(console.error);
-
-  }
+    
 
 
 
