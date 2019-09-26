@@ -49,7 +49,6 @@ if (message.content === 'تسجيل دخول') {
 client.on('message', message => {
     if (message.content === "تسجيل دخول") {
     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
   .setColor("#000000")
   .addField(" :white_check_mark: تــــم تسجيل دخولك") // Alpha Codes Ghost
   
@@ -61,6 +60,17 @@ client.on('message', message => {
     
 
 
+client.on('message', message => {
+    if (message.content === "تسجيل خروج") {
+    let embed = new Discord.RichEmbed()
+  .setColor("#000000")
+  .addField(" :white_check_mark: تــــم تسجيل خروجك") // Alpha Codes Ghost
+  
+  
+  
+  message.channel.sendEmbed(embed);  // Alpha Codes Ghost
+  }
+  });
 
 client.on('messageDelete', message => {
  
