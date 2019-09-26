@@ -50,7 +50,7 @@ client.on('message', message => {
     if (message.content === "تسجيل دخول") {
     let embed = new Discord.RichEmbed()
   .setColor("#000000")
-  .addField(" :white_check_mark: تــــم تسجيل دخولك") // Alpha Codes Ghost
+  .setDescription(`:white_check_mark: **__تم تسجيل دخولك__**`)
   
   
   
@@ -64,9 +64,9 @@ client.on('message', message => {
     if (message.content === "تسجيل خروج") {
     let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
-  .setDescription(`:white_check_mark: **__تم تسجيل دخولك__**`)
+  .setDescription(`:white_check_mark: **__تم تسجيل خروجك__**`)
   .setColor("#000000")
-  .addField(" :white_check_mark: تــــم تسجيل خروجك") // Alpha Codes Ghost
+  
   
   
   
