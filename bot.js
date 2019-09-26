@@ -46,7 +46,18 @@ if (message.content === 'تسجيل دخول') {
   });
 
 
-
+client.on('message', message => {
+    if (message.content === "تسجيل دخول") {
+    let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#000000")
+  .addField(" :white_check_mark: تــــم تسجيل دخولك") // Alpha Codes Ghost
+  
+  
+  
+  message.channel.sendEmbed(embed);  // Alpha Codes Ghost
+  }
+  });
     
 
 
