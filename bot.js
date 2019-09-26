@@ -20,7 +20,7 @@ client.user.setStatus("online") // Alpha Codes Ghost
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find('name', 'welcome');
   if (!channel) return;
-  channel.send(`#⏰-طريقة-التفعيل-التلقائي **بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله | للتفعيل انتقل الى هنا **, ${member}`);
+  channel.send(`**بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله | للتفعيل انتقل الى هنا **#⏰-طريقة-التفعيل-التلقائي , ${member}`);
   
 });
 
