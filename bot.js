@@ -66,7 +66,7 @@ client.on('message', message => {
     let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#000000")
-  .setDescription(````51.75.250.196:27315````)
+  .setDescription(`**51.75.250.196:27315**`)
 
 
 
