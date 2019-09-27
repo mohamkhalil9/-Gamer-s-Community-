@@ -59,6 +59,17 @@ client.on('message', message => {
   }
   });
 
+
+
+client.on('message', message => {
+    if (message.content === "ip") {
+    let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#000000")
+  .setDescription(````51.75.250.196:27315````)
+
+
+
 client.on('messageDelete', message => {
  
     if(message.author.bot) return;
