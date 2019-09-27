@@ -67,7 +67,13 @@ client.on('message', message => {
   .setAuthor(message.author.username)
   .setColor("#000000")
   .setDescription(`تفضل الايبي يا وردة** 51.75.250.196:27315**`)
-
+  
+  
+  
+  message.channel.sendEmbed(embed);  // Alpha Codes Ghost
+  }
+  });
+    
 
 
 client.on('messageDelete', message => {
