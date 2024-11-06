@@ -14,7 +14,7 @@ client.on('ready', () => {
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`Arab Force For RP | قوات العرب للحياة الواقعية`,"http://twitch.tv/Dream")
-client.user.setStatus("online") // Alpha Codes Ghost
+client.user.setStatus("online") 
 });
 
 client.on('guildMemberAdd', member => {
@@ -40,7 +40,7 @@ client.on('message', message => {
   
   
   
-  message.channel.sendEmbed(embed);  // Alpha Codes Ghost
+  message.channel.sendEmbed(embed); 
   }
   });
     
@@ -56,7 +56,7 @@ client.on('message', message => {
   
   
   
-  message.channel.sendEmbed(embed);  // Alpha Codes Ghost
+  message.channel.sendEmbed(embed); 
   }
   });
 
@@ -71,7 +71,7 @@ client.on('message', message => {
   
   
   
-  message.channel.sendEmbed(embed);  // Alpha Codes Ghost
+  message.channel.sendEmbed(embed);  
   }
   });
     
